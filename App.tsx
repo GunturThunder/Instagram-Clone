@@ -10,15 +10,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { loginScreen } from './src/screens/login/login'
-import { homeScreen } from './src/screens/home/home'
+import { bottmNavigator } from './src/screens/home/bottomNavigator'
 
 const Stack = createStackNavigator();
 const App = (): React.ReactElement => {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode='none' initialRouteName="Home">
+      <Stack.Navigator headerMode='none' initialRouteName="Login">
         <Stack.Screen name="Login" component={loginScreen} />
-        <Stack.Screen name="Home" component={homeScreen} />
+        <Stack.Screen name="bottmNavigator" component={bottmNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -57,7 +57,7 @@ export const loginScreen = (props: any): React.ReactElement => {
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity
-                        onPress={() => props.navigation.navigate('Home')}
+                        onPress={() => props.navigation.navigate('bottmNavigator')}
                         disabled={isDisabled}
                         style={isDisabled === false ? styles.btnLogin : styles.btnLoginDisabled}>
                         <Text style={styles.textLogin}>Log In</Text>
