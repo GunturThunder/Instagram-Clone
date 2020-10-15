@@ -9,7 +9,6 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import { asin } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const homeScreen = (props: any): React.ReactElement => {

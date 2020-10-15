@@ -1,24 +1,26 @@
 import React from 'react';
+import { Image, View, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { homeScreen } from './home'
-import { comingSoon } from '../empty/comingSoon'
-import Icon from 'react-native-vector-icons/Ionicons'
-import { Image, View, StyleSheet } from 'react-native';
+import { homeScreen } from './home';
+import { comingSoon } from '../empty/comingSoon';
+import { explore } from '../explore/explore';
+import { activity } from '../activity/activity'
 
 const Tab = createBottomTabNavigator();
 export const bottmNavigator = (): React.ReactElement => {
     return (
         <Tab.Navigator
-            initialRouteName="Home"
+            initialRouteName="Explore"
             tabBarOptions={{
                 activeTintColor: '#000',
+                showLabel:false,
             }}>
             <Tab.Screen
                 name="Home"
                 component={homeScreen}
                 options={{
-                    title: 'Home',
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="ios-home" color={color} size={size} />
                     ),
@@ -26,11 +28,10 @@ export const bottmNavigator = (): React.ReactElement => {
             />
             <Tab.Screen
                 name="Explore"
-                component={comingSoon}
+                component={explore}
                 options={{
-                    tabBarLabel: 'Explore',
                     tabBarIcon: ({ color, size }) => (
-                        <Icon name="ios-search-outline" color={color} size={size} />
+                        <Icon name="search" color={color} size={size} />
                     ),
                 }}
             />
@@ -38,15 +39,16 @@ export const bottmNavigator = (): React.ReactElement => {
                 name="Upload"
                 component={comingSoon}
                 options={{
-                    tabBarLabel: 'Upload',
                     tabBarIcon: ({ color, size }) => (
-                        <Icon name="add" color={color} size={size} />
+                        <View style={{borderWidth:1,borderColor:color,borderRadius:5}}>
+                            <Icon name="add" color={color} size={20} />
+                        </View>
                     ),
                 }}
             />
             <Tab.Screen
                 name="Notification"
-                component={comingSoon}
+                component={activity}
                 options={{
                     tabBarLabel: 'Notification',
                     tabBarIcon: ({ color, size }) => (
@@ -58,7 +60,6 @@ export const bottmNavigator = (): React.ReactElement => {
                 name="Profile"
                 component={comingSoon}
                 options={{
-                    tabBarLabel: 'Profile',
                     tabBarIcon: ({ color, size }) => (
                         <Image style={styles.followersImage} source={require('../../assets/images/ibrahimovic.jpg')} />
                     ),
