@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const App = (): React.ReactElement => {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode='none' initialRouteName="bottmNavigator">
+      <Stack.Navigator headerMode='none' initialRouteName="Login">
         <Stack.Screen name="Login" component={loginScreen} />
         <Stack.Screen name="bottmNavigator" component={bottmNavigator} />
       </Stack.Navigator>

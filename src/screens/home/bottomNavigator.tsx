@@ -6,13 +6,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { homeScreen } from './home';
 import { comingSoon } from '../empty/comingSoon';
 import { explore } from '../explore/explore';
-import { activity } from '../activity/activity'
+import { activity } from '../activity/activity';
+import { userDetail } from '../user/userDetail';
 
 const Tab = createBottomTabNavigator();
 export const bottmNavigator = (): React.ReactElement => {
     return (
         <Tab.Navigator
-            initialRouteName="Explore"
+            initialRouteName="Home"
             tabBarOptions={{
                 activeTintColor: '#000',
                 showLabel:false,
@@ -58,7 +59,7 @@ export const bottmNavigator = (): React.ReactElement => {
             />
             <Tab.Screen
                 name="Profile"
-                component={comingSoon}
+                component={userDetail}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <Image style={styles.followersImage} source={require('../../assets/images/ibrahimovic.jpg')} />
