@@ -76,13 +76,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     followersImage: {
-        height: 65,
-        width: 65,
-        borderRadius: 65 / 2,
+        height: 55,
+        width: 55,
+        borderRadius: 55 / 2,
     },
     likedPhoto: {
         flex: 1,
-        height: 65,
-        width: 65
+        height: 55,
+        width: 55
     }
 })

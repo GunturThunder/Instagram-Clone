@@ -40,43 +40,43 @@ export const homeScreen = (props: any): React.ReactElement => {
                                 </View>
                                 <Text style={styles.textUserNameStory}>Your Story</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity style={styles.btnStoryStle}>
                                 <View style={styles.instaStory}>
                                     <Image style={styles.images} source={require('../../assets/images/ibrahimovic.jpg')} />
                                 </View>
-                                <View style={{ width: 85, alignItems: 'center' }}>
+                                <View>
                                     <Text>ibrahimovic</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity style={styles.btnStoryStle}>
                                 <View style={styles.instaStory}>
                                     <Image style={styles.images} source={require('../../assets/images/messie.jpg')} />
                                 </View>
-                                <View style={{ width: 85, alignItems: 'center' }}>
+                                <View>
                                     <Text>messie_</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity style={styles.btnStoryStle}>
                                 <View style={styles.instaStory}>
                                     <Image style={styles.images} source={require('../../assets/images/ibrahimovic.jpg')} />
                                 </View>
-                                <View style={{ width: 85, alignItems: 'center' }}>
+                                <View>
                                     <Text>kucinglucu</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity style={styles.btnStoryStle}>
                                 <View style={styles.instaStory}>
                                     <Image style={styles.images} source={require('../../assets/images/kucing.jpg')} />
                                 </View>
-                                <View style={{ width: 85, alignItems: 'center' }}>
+                                <View>
                                     <Text>zlatan</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity style={styles.btnStoryStle}>
                                 <View style={styles.instaStory}>
                                     <Image style={styles.images} source={require('../../assets/images/ibrahimovic.jpg')} />
                                 </View>
-                                <View style={{ width: 85, alignItems: 'center' }}>
+                                <View>
                                     <Text>ibrahimovic</Text>
                                 </View>
                             </TouchableOpacity>
@@ -94,26 +94,26 @@ export const homeScreen = (props: any): React.ReactElement => {
                                     <Text style={styles.textFollowersPost}>ibrahimovic</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity>
-                                    <Icon size={24} name="ellipsis-vertical" />
+                                    <Icon size={16} name="ellipsis-vertical" />
                                 </TouchableOpacity>
                             </View>
-                            <View>
-                                <Image style={{ height: 324, width: '100%' }} resizeMode='contain' source={require('../../assets/images/post1.jpg')} />
+                            <View style={{height: 300}}>
+                                <Image style={{ height:'100%', width: '100%'}} resizeMode='contain' source={require('../../assets/images/post1.jpg')} />
                             </View>
                             <View style={styles.wrapSession}>
                                 <View style={styles.likeShereCommContainer}>
                                     <TouchableOpacity>
-                                        <Icon style={{ marginRight: 13 }} color="#fb3958" size={34} name="heart-sharp" />
+                                        <Icon style={{ marginRight: 13 }} color="#fb3958" size={26} name="heart-sharp" />
                                     </TouchableOpacity>
                                     <TouchableOpacity>
-                                        <Icon style={{ marginRight: 13 }} size={30} name="ios-chatbubble-outline" />
+                                        <Icon style={{ marginRight: 13 }} size={24} name="ios-chatbubble-outline" />
                                     </TouchableOpacity>
                                     <TouchableOpacity>
-                                        <Icon size={30} name="paper-plane-outline" />
+                                        <Icon size={24} name="paper-plane-outline" />
                                     </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity>
-                                    <Icon size={30} name="ios-bookmark-outline" />
+                                    <Icon size={24} name="ios-bookmark-outline" />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.likedByContainer}>
@@ -199,14 +199,13 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     instaStory: {
-        height: 80,
-        width: 80,
-        borderRadius: 80 / 2,
-        marginRight: 25,
-        borderWidth: 3,
+        height: 70,
+        width: 70,
+        borderRadius: 70 / 2,
+        borderWidth: 2,
         borderColor: 'red',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     instaStoryUser: {
         flex: 1,
@@ -216,9 +215,9 @@ const styles = StyleSheet.create({
         marginLeft: 15
     },
     images: {
-        height: 70,
-        width: 70,
-        borderRadius: 70 / 2,
+        height: 60,
+        width: 60,
+        borderRadius: 60 / 2,
     },
     addContainer: {
         position: 'absolute',
@@ -234,7 +233,7 @@ const styles = StyleSheet.create({
         marginTop: 5
     },
     wrapUserPost: {
-        marginBottom: 15
+        marginBottom: 15,
     },
     postHeader: {
         marginLeft: 5,
@@ -244,13 +243,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     followersImage: {
-        height: 50,
-        width: 50,
-        borderRadius: 50 / 2,
+        height: 33,
+        width: 33,
+        borderRadius: 33 / 2,
         marginRight: 10
     },
     textFollowersPost: {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: 'bold'
     },
     likeShereCommContainer: {
@@ -288,5 +287,9 @@ const styles = StyleSheet.create({
         color: '#4B4B4B',
         marginTop: 3,
         fontSize: 12
+    },
+    btnStoryStle:{
+        marginRight:15,
+        alignItems:'center'
     }
 })

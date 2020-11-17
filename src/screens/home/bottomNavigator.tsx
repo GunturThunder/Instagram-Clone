@@ -41,7 +41,7 @@ export const bottmNavigator = (): React.ReactElement => {
                 component={comingSoon}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <View style={{borderWidth:1,borderColor:color,borderRadius:5}}>
+                        <View style={{borderWidth:1,borderColor:color,borderRadius:5,width:22,alignItems:'center'}}>
                             <Icon name="add" color={color} size={20} />
                         </View>
                     ),

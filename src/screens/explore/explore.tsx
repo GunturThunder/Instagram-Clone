@@ -10,13 +10,10 @@ export const explore = (): React.ReactElement => {
         <SafeAreaView style={styles.wrap}>
             <View style={styles.header}>
                 <View style={styles.cameraInsta}>
-                    <TouchableOpacity>
-                        <Icon size={30} name="search" />
-                    </TouchableOpacity>
-                    <TextInput style={{ maxWidth: '80%', marginLeft: 10 }} placeholder="Search" />
+                    <TextInput placeholder="Search" style={{paddingLeft:20}} />
                 </View>
-                <TouchableOpacity style={{ marginRight: 10 }}>
-                    <Icon size={30} name="scan" />
+                <TouchableOpacity>
+                    <Icon size={28} name="scan" />
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1 }}>
@@ -28,28 +25,26 @@ export const explore = (): React.ReactElement => {
                         >
                             <TouchableOpacity>
                                 <View style={styles.filteredPart}>
-                                    <Icon size={22} color="#000" name="ios-tv" />
                                     <Text style={styles.textFiltered}>IGTV</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
                                 <View style={styles.filteredPart}>
-                                    <Icon size={22} color="#000" name="md-lock-closed" />
                                     <Text style={styles.textFiltered}>Shop</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <View style={styles.filteredPartWIcon}>
+                                <View style={styles.filteredPart}>
                                     <Text style={styles.textFiltered}>Travel</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <View style={styles.filteredPartWIcon}>
+                                <View style={styles.filteredPart}>
                                     <Text style={styles.textFiltered}>Game</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
-                                <View style={styles.filteredPartWIcon}>
+                                <View style={styles.filteredPart}>
                                     <Text style={styles.textFiltered}>Beaulty</Text>
                                 </View>
                             </TouchableOpacity>
@@ -137,14 +132,15 @@ const styles = StyleSheet.create({
     },
     header: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal:10,
+        justifyContent:'space-between'
     },
     cameraInsta: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 5,
-        paddingHorizontal: 10
+        width: '85%',
+        borderRadius:10,
+        backgroundColor:'#EBEBEB',
+        marginVertical:10
     },
     textInsta: {
         color: '#000',
@@ -165,17 +161,7 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         borderWidth: 1,
         borderColor: '#DDDDDD',
-        borderRadius: 5,
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    filteredPartWIcon: {
-        marginRight: 10,
-        paddingHorizontal: 20,
-        paddingVertical: 7,
-        borderWidth: 1,
-        borderColor: '#DDDDDD',
-        borderRadius: 5,
+        borderRadius: 10,
         flexDirection: 'row',
         alignItems: 'center'
     },
@@ -183,7 +169,6 @@ const styles = StyleSheet.create({
         color: '#000',
         marginLeft: 5,
         fontSize: 14,
-        fontWeight: 'bold'
     },
     wrapExplore: {
         flex: 1,
@@ -197,5 +182,11 @@ const styles = StyleSheet.create({
     },
     bigPart: {
         flex: 2,
+    },
+    textInputSearch:{
+        width: '85%',
+        marginLeft: 10,
+        borderRadius:10,
+        backgroundColor:'#EBEBEB'
     }
 })
