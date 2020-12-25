@@ -3,14 +3,13 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput, Imag
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 export const explore = (): React.ReactElement => {
     const [data, setData] = useState<any>(['data1', 'data2', 'data3', 'data4'])
     return (
         <SafeAreaView style={styles.wrap}>
             <View style={styles.header}>
                 <View style={styles.cameraInsta}>
-                    <TextInput placeholder="Search" style={{paddingLeft:20}} />
+                    <TextInput placeholder="Search" style={styles.tISearch} />
                 </View>
                 <TouchableOpacity>
                     <Icon size={28} name="scan" />
@@ -188,5 +187,9 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         borderRadius:10,
         backgroundColor:'#EBEBEB'
+    },
+    tISearch:{
+        paddingLeft:20,
+        paddingVertical:'3%'
     }
 })

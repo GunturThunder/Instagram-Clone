@@ -7,9 +7,9 @@ import {
     Text,
     StatusBar,
     TouchableOpacity,
-    Image
+    Image,TextInput
 } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+// import { TextInput } from 'react-native-gesture-handler';
 import { Line } from '../../components/line'
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -44,10 +44,10 @@ export const loginScreen = (props: any): React.ReactElement => {
                 </View>
                 <View style={styles.formContainer}>
                     <View style={styles.textInput}>
-                        <TextInput onChangeText={setEmail} placeholder="Phone number,email or username" />
+                        <TextInput style={styles.textInputText} onChangeText={setEmail} placeholder="Phone number,email or username" />
                     </View>
                     <View style={styles.textInputPassword}>
-                        <TextInput onChangeText={setPassword} style={{ width: '90%' }} secureTextEntry={isPassworsShow} placeholder="Password" />
+                        <TextInput onChangeText={setPassword} style={{ width: '90%',paddingVertical:'4%' }} secureTextEntry={isPassworsShow} placeholder="Password" />
                         <TouchableOpacity onPress={hideShowPassword}>
                             {isPassworsShow === true ? (
                                 <Icon size={24} color="#CBCBCB" name="eye-off-outline" />
@@ -200,5 +200,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderTopWidth: 1,
         borderTopColor: '#CCCCCC'
+    },
+    textInputText:{
+        paddingVertical:'4%'
     }
 })

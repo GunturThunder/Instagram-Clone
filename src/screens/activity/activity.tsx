@@ -4,7 +4,7 @@ import { and } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const activity = (): React.ReactElement => {
-    const [data, setDta] = useState<any>(['zlatan09', 'ggthunder', 'mungkung', 'demi', 'kaesa', 'kucinglucu','fiki','vlada','nokimeca'])
+    const [data, setDta] = useState<any>(['zlatan09', 'ggthunder', 'mungkung', 'demi', 'kaesa', 'kucinglucu','fiki','vlada','nokimeca','gula','nandi','takin','sepa','agung','gani'])
     return (
         <SafeAreaView style={styles.wrap}>
             <View style={styles.container}>
