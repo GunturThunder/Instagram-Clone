@@ -16,29 +16,32 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const storyScreen = (props: any): React.ReactElement => {
-    const [counter, setCounter] = useState<number>(0);
-    const backButton = () =>{
-        setCounter(0),
+    const { initialMinute = 0, initialSeconds = 0 } = props;
+    const [seconds, setSeconds] = useState(initialSeconds);
+    const [persent, setPersent] = useState<number>(0)
+    const backButton = () => {
+        // setCounter(0),
         props.navigation.goBack()
         // clearInterval(timeCounter)
     }
-    const timeCounter = () =>{
-        setTimeout(() => {
-            var i = 0
-            console.log(i+1)
-            // var a:string = new Date().getSeconds().toLocaleString()
-            // setCounter(counter+1)
-            // this.setState({
-            //   curTime : new Date().toLocaleString()
-            // })
-          }, 1000)
-    }
     useEffect(() => {
-        timeCounter()
-    },[])
+        let myInterval = setInterval(() => {
+            // console.log('sec',seconds)
+            if (seconds >= 15) {
+                setSeconds(0);
+                setPersent(0)
+            }
+            else {
+                setSeconds(seconds + 1);
+                setPersent(persent + 6.66666666667)
+            }
+        }, 1000)
+        return () => {
+            clearInterval(myInterval);
+        };
+    });
     return (
         <SafeAreaView style={styles.wrap}>
-            {/* {console.log('counter',counter)} */}
             <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : null || undefined}
                 keyboardVerticalOffset={Platform.OS === "ios" ? 0 : -500}
@@ -46,13 +49,18 @@ export const storyScreen = (props: any): React.ReactElement => {
                 <Image style={{ position: 'absolute' }} source={require('../../assets/images/ibrahimovic.jpg')} />
                 <View style={styles.container}>
                     <View style={{ backgroundColor: '#959595', width: '100%' }}>
-                        <View style={styles.timeCounterView}>
+                        <View style={{
+                            backgroundColor: '#F7F7F7', 
+                            height: 3, 
+                            borderRadius: 5,
+                            width: `${persent}%`,
+                        }}>
                         </View>
                     </View>
                     <View style={styles.vUserPartContainer}>
                         <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Image style={styles.images} source={require('../../assets/images/ibrahimovic.jpg')} />
-                            <Text style={styles.textName}>ZlatanIbra</Text>
+                            <Text style={styles.textName}>{props.route.params.item}</Text>
                         </TouchableOpacity>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <TouchableOpacity>
@@ -89,12 +97,12 @@ const styles = StyleSheet.create({
         marginVertical: '2%',
         marginHorizontal: 10,
     },
-    timeCounterView: {
-        backgroundColor: '#F7F7F7',
-        height: 3,
-        borderRadius: 5,
-        width: '80%'
-    },
+    // timeCounterView: {
+    //     backgroundColor: '#F7F7F7',
+    //     height: 3,
+    //     borderRadius: 5,
+    //     width: '80%'
+    // },
     vUserPartContainer: {
         marginTop: 10,
         marginHorizontal: 5,

@@ -7,14 +7,29 @@ import {
     Text,
     StatusBar,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableWithoutFeedback
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const homeScreen = (props: any): React.ReactElement => {
     const [data, setData] = useState<any>(['data1', 'data2', 'data3', 'data4'])
     const [dataFollowers, setDataFollowers] = useState<any>(['zlatan09', 'ggthunder', 'mungkung', 'demi', 'kaesa', 'kucinglucu', 'fiki', 'vlada', 'nokimeca', 'gula', 'nandi', 'takin', 'sepa', 'agung', 'gani'])
-
+    const [isLiked, setIsLiked] = useState<boolean>(false)
+    const toggleLike = () => {
+        setIsLiked(!isLiked)
+    }
+    var lastTap: number | null = null;
+    const handleDoubleTap = () => {
+        // console.log('masuk')
+        const now = Date.now();
+        const DOUBLE_PRESS_DELAY = 300;
+        if (lastTap && (now - lastTap) < DOUBLE_PRESS_DELAY) {
+            toggleLike();
+        } else {
+            lastTap = now;
+        }
+    }
     return (
         <SafeAreaView style={styles.wrap}>
             <View style={styles.header}>
@@ -42,12 +57,12 @@ export const homeScreen = (props: any): React.ReactElement => {
                                 </View>
                                 <Text style={styles.textUserNameStory}>Your Story</Text>
                             </TouchableOpacity>
-                            {dataFollowers.map((item:any, index:number) => {
+                            {dataFollowers.map((item: any, index: number) => {
                                 return (
                                     <TouchableOpacity
-                                    onPress={()=>props.navigation.navigate("storyScreen")}
-                                    key={index} 
-                                    style={styles.btnStoryStle}>
+                                        onPress={() => props.navigation.navigate("storyScreen", { item })}
+                                        key={index}
+                                        style={styles.btnStoryStle}>
                                         <View style={styles.instaStory}>
                                             <Image style={styles.images} source={require('../../assets/images/ibrahimovic.jpg')} />
                                         </View>
@@ -74,13 +89,15 @@ export const homeScreen = (props: any): React.ReactElement => {
                                     <Icon size={16} name="ellipsis-vertical" />
                                 </TouchableOpacity>
                             </View>
-                            <View style={{ height: 300 }}>
-                                <Image style={{ height: '100%', width: '100%' }} resizeMode='contain' source={require('../../assets/images/post1.jpg')} />
-                            </View>
+                            <TouchableWithoutFeedback onPress={handleDoubleTap}>
+                                <View style={{ height: 300 }}>
+                                    <Image style={{ height: '100%', width: '100%' }} resizeMode='contain' source={require('../../assets/images/post1.jpg')} />
+                                </View>
+                            </TouchableWithoutFeedback>
                             <View style={styles.wrapSession}>
                                 <View style={styles.likeShereCommContainer}>
                                     <TouchableOpacity>
-                                        <Icon style={{ marginRight: 13 }} color="#fb3958" size={26} name="heart-sharp" />
+                                        <Icon style={{ marginRight: 13 }} color={isLiked === false ? "#000":"#fb3958"} size={26} name={isLiked === false ? "heart-outline" : "heart-sharp"} />
                                     </TouchableOpacity>
                                     <TouchableOpacity>
                                         <Icon style={{ marginRight: 13 }} size={24} name="ios-chatbubble-outline" />
